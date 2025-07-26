@@ -42,7 +42,7 @@ export default function Home() {
 
   useEffect(() => {
     handleShuffle();
-  }, []);
+  }, [rows, cols]);
 
   interface ShuffleArray {
     (array: number[]): number[];
