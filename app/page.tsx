@@ -338,13 +338,21 @@ export default function Home() {
         </button>
       </div>
 
-      {manualInputMode && assignedNumbers.some(num => num !== 0) && confirmedManualNumbers.length === 0 && (
-        <button
-          onClick={handleConfirmManualInput}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded w-40"
-        >
-          เสร็จสิ้นการเลือก 
-        </button>
+      {manualInputMode && confirmedManualNumbers.length === 0 && (
+        <div className="flex flex-col items-center">
+          <button
+            onClick={handleConfirmManualInput}
+            className={`mt-4 px-4 py-2 text-white rounded w-40 ${
+              assignedNumbers.every(num => num !== 0) ? 'bg-blue-600' : 'bg-gray-400 cursor-not-allowed'
+            }`}
+            disabled={!assignedNumbers.every(num => num !== 0)}
+          >
+            เสร็จสิ้นการเลือก 
+          </button>
+          {!assignedNumbers.every(num => num !== 0) && (
+            <p className="text-red-500 mt-2">ยังเลือกตัวเลขไม่ครบ</p>
+          )}
+        </div>
       )}
 
       {showModal && (
