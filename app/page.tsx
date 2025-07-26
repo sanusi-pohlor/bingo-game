@@ -289,10 +289,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-4xl font-bold mb-8">Bingo Game at Home</h1>
+      <h1 className="text-3xl font-bold mb-8">Bingo Game at Home</h1>
 
       <div className="mb-8">
-        <label htmlFor="gridSize" className="mr-2 text-2xl font-bold">เลือกขนาดตาราง:</label>
+        <label htmlFor="gridSize" className="mr-2 text-1xl font-bold">เลือกขนาดตาราง:</label>
         <select
           id="gridSize"
           aria-label="Grid Size"
@@ -306,7 +306,7 @@ export default function Home() {
       </div>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-bold">Score: {score}</h2>
+        <h1 className="text-2xl font-bold">Score: {score}</h1>
       </div>
 
       <div className="flex flex-col">
@@ -314,12 +314,14 @@ export default function Home() {
       </div>
 
       <div className="flex mt-8">
-        <button
-          onClick={handleShuffle}
-          className="px-4 py-2 bg-green-500 text-white rounded w-40 mr-2"
-        >
-          สุ่มตัวเลขใหม่
-        </button>
+        {!manualInputMode && (
+          <button
+            onClick={handleShuffle}
+            className="px-4 py-2 bg-green-500 text-white rounded w-40 mr-2"
+          >
+            สุ่มตัวเลขใหม่
+          </button>
+        )}
         <button
           onClick={() => {
             setManualInputMode(!manualInputMode);
@@ -336,7 +338,7 @@ export default function Home() {
       {manualInputMode && assignedNumbers.some(num => num !== 0) && confirmedManualNumbers.length === 0 && (
         <button
           onClick={handleConfirmManualInput}
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
+          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded w-40"
         >
           เสร็จสิ้นการเลือก 
         </button>
