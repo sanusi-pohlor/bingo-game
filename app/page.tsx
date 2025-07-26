@@ -87,7 +87,7 @@ export default function Home() {
         for (let j = 0; j < cols; j++) {
           const index = currentButtonIndex++;
           const buttonContent = numbersToDisplay[index] !== 0 ? numbersToDisplay[index] : '';
-          const isDisabled = confirmedManualNumbers.length > 0 || assignedNumbers[index] !== 0;
+          
           const isSelected = selectedButtons.has(`${i}-${j}`);
           const isWinningRow = winningRows.has(i);
           const isWinningCol = winningCols.has(j);
@@ -104,8 +104,6 @@ export default function Home() {
                   ? 'bg-red-500 text-white'
                   : confirmedManualNumbers.length > 0
                   ? 'bg-blue-500 text-white'
-                  : isDisabled
-                  ? 'bg-gray-400 text-gray-700'
                   : 'bg-gray-300 text-black'
               }`}
               onClick={() => {
@@ -115,7 +113,7 @@ export default function Home() {
                   handleButtonClick(index);
                 }
               }}
-              disabled={confirmedManualNumbers.length > 0}
+              disabled={confirmedManualNumbers.length > 0 && isSelected}
             >
               {buttonContent}
             </button>
