@@ -145,7 +145,6 @@ export default function Home() {
                   : 'bg-blue-500 text-white'
               }`}
               onClick={() => handleSelectionClick(buttonKey)}
-              disabled={isSelected}
             >
               {shuffledNumbers[numberIndex++]}
             </button>
@@ -164,7 +163,9 @@ export default function Home() {
   const handleSelectionClick = (key: string) => {
     setSelectedButtons((prevSelected) => {
       const newSelected = new Set(prevSelected);
-      if (!newSelected.has(key)) {
+      if (newSelected.has(key)) {
+        newSelected.delete(key);
+      } else {
         newSelected.add(key);
       }
       return newSelected;
