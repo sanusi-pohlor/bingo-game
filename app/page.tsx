@@ -68,8 +68,12 @@ export default function Home() {
             newAssigned[index] = 0;
           } else {
             // If not assigned, assign the next available number
-            const nextNumber: number = prevAssigned.filter(num => num !== 0).length + 1;
-            newAssigned[index] = nextNumber;
+            let nextNum = 1;
+            const assignedSet = new Set(newAssigned.filter(num => num !== 0));
+            while (assignedSet.has(nextNum)) {
+              nextNum++;
+            }
+            newAssigned[index] = nextNum;
           }
           return newAssigned;
         });
@@ -111,7 +115,7 @@ export default function Home() {
                   handleButtonClick(index);
                 }
               }}
-              disabled={(isDisabled && confirmedManualNumbers.length === 0) || isSelected}
+              disabled={confirmedManualNumbers.length > 0}
             >
               {buttonContent}
             </button>
