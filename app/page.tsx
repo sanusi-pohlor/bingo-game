@@ -105,8 +105,8 @@ export default function Home() {
                   : isSelected
                   ? 'bg-red-500 text-white'
                   : confirmedManualNumbers.length > 0
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-300 text-black'
+                  ? 'bg-[#7fb5d7] text-white'
+                  : 'bg-gray-300 text-[#4b5063]'
               }`}
               onClick={() => {
                 if (confirmedManualNumbers.length > 0) {
@@ -143,10 +143,10 @@ export default function Home() {
               key={buttonKey}
               className={`w-16 h-16 m-1 rounded flex items-center justify-center ${
                 isWinningRow || isWinningCol || isWinningDiagonal
-                  ? 'bg-green-500 text-white'
+                  ? 'bg-[#89c6be] text-white'
                   : isSelected
-                  ? 'bg-red-500 text-white'
-                  : 'bg-blue-500 text-white'
+                  ? 'bg-[#e37a81] text-white'
+                  : 'bg-[#7fb5d7] text-white'
               }`}
               onClick={() => handleSelectionClick(buttonKey)}
             >
@@ -293,9 +293,8 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-[#f9eb93]">
       <h1 className="text-3xl font-bold mb-8">Bingo Game@Home</h1>
-
       <div className="mb-8">
         <label htmlFor="gridSize" className="mr-2 text-1xl font-bold">เลือกขนาดตาราง:</label>
         <select
@@ -304,7 +303,7 @@ export default function Home() {
           title="Grid Size"
           value={`${rows}x${cols}`}
           onChange={handleGridChange}
-          className="border p-1 w-32 text-black"
+          className="border p-1 w-32 text-[#4b5063]"
         >
           {generateGridOptions()}
         </select>
@@ -360,7 +359,7 @@ export default function Home() {
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg text-center">
-            <h2 className="text-4xl font-bold mb-4 text-black">You Win!</h2>
+            <h2 className="text-4xl font-bold mb-4 text-[#4b5063]">You Win!</h2>
             <Image src={bingo} alt="Bingo" width={400} height={400} />
             <button
               onClick={() => setShowModal(false)}

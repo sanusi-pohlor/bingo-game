@@ -6,7 +6,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'custom-yellow': '#f9eb93',
+      },
+    },
   },
   safelist: [
     { pattern: /grid-cols-\d+/ },
