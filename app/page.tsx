@@ -115,7 +115,6 @@ export default function Home() {
                   handleButtonClick(index);
                 }
               }}
-              disabled={confirmedManualNumbers.length > 0 && isSelected}
             >
               {buttonContent}
             </button>
