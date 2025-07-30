@@ -143,7 +143,7 @@ export default function Home() {
               key={buttonKey}
               className={`w-16 h-16 m-1 rounded flex items-center justify-center ${
                 isWinningRow || isWinningCol || isWinningDiagonal
-                  ? 'bg-[#89c6be] text-white'
+                  ? 'bg-[#b6d084] text-white'
                   : isSelected
                   ? 'bg-[#e37a81] text-white'
                   : 'bg-[#7fb5d7] text-white'
@@ -293,7 +293,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-[#f9eb93]">
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-[#fff3d9]">
       <h1 className="text-3xl font-bold mb-8">Bingo Game@Home</h1>
       <div className="mb-8">
         <label htmlFor="gridSize" className="mr-2 text-1xl font-bold">เลือกขนาดตาราง:</label>
@@ -321,7 +321,7 @@ export default function Home() {
         {!manualInputMode && (
           <button
             onClick={handleShuffle}
-            className="px-4 py-2 bg-green-500 text-white rounded w-40 mr-2"
+            className="px-4 py-2 bg-[#307604] text-white rounded w-40 mr-2"
           >
             สุ่มตัวเลขใหม่
           </button>
@@ -333,7 +333,7 @@ export default function Home() {
             setConfirmedManualNumbers([]); // Reset confirmed numbers when toggling mode
             setSelectedButtons(new Set()); // Reset selected buttons when toggling mode
           }}
-          className={`px-4 py-2 rounded w-40 ${manualInputMode ? 'bg-red-500' : 'bg-purple-500'} text-white`}
+          className={`px-4 py-2 rounded w-40 ${manualInputMode ? 'bg-red-400' : 'bg-[#bf97cb]'} text-white`}
         >
           {manualInputMode ? 'ออก' : 'เลือกตัวเลขเอง'}
         </button>
