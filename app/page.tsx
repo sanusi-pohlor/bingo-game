@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import confetti from 'canvas-confetti';
+import Image from 'next/image';
+import bingo from './bingo.gif';
 
 export default function Home() {
   const [rows, setRows] = useState(5);
@@ -358,13 +360,13 @@ export default function Home() {
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-8 rounded-lg text-center">
-            <h2 className="text-4xl font-bold mb-4">You Win!</h2>
-            <canvas ref={canvasRef} width={400} height={400} />
+            <h2 className="text-4xl font-bold mb-4 text-black">You Win!</h2>
+            <Image src={bingo} alt="Bingo" width={400} height={400} />
             <button
               onClick={() => setShowModal(false)}
               className="mt-4 px-4 py-2 bg-blue-600 text-white rounded"
             >
-              Close
+              ปิดหน้าต่าง
             </button>
           </div>
         </div>
