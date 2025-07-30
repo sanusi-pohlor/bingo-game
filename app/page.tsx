@@ -18,7 +18,7 @@ export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (score === rows) {
+    if (score >= cols) {
       setShowModal(true);
       if (canvasRef.current) {
         const myConfetti = confetti.create(canvasRef.current, {
